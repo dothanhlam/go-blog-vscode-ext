@@ -1,0 +1,56 @@
+{
+  "name": "go-blog-vscode-ext",
+  "version": "1.0.0",
+  "description": "the vscode extension to edit the blog content",
+  "keywords": [
+    "vscode",
+    "extension",
+    "go-blog"
+  ],
+  "homepage": "https://github.com/dothanhlam/go-blog-vscode-ext#readme",
+  "bugs": {
+    "url": "https://github.com/dothanhlam/go-blog-vscode-ext/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dothanhlam/go-blog-vscode-ext.git"
+  },
+  "license": "ISC",
+  "author": "lam do",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onWorkspaceContains:blog-config.json"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "blog-sync.createPost",
+        "title": "Blog: Create New Post"
+      },
+      {
+        "command": "blog-sync.linkPost",
+        "title": "Blog: Link to Existing Post"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.106.1",
+    "typescript": "^5.9.3"
+  }
+}
