@@ -42,7 +42,13 @@ export async function createPost(configManager: ConfigManager) {
         vscode.window.setStatusBarMessage('Creating post...', 2000);
 
         // Create post via API
-        const newPost = await api.createPost(data.title, content);
+        const newPost = await api.createPost(
+            data.title,
+            content,
+            data.subtitle,
+            data.image,
+            data.tags
+        );
 
         // Update Front Matter with new ID
         data.blog_id = newPost.id;

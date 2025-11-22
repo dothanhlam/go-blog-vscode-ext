@@ -45,11 +45,14 @@ export class ApiClient {
     /**
      * Create a new post
      */
-    async createPost(title: string, content: string): Promise<BlogPost> {
+    async createPost(title: string, content: string, subtitle?: string, image?: string, tags?: string[]): Promise<BlogPost> {
         try {
             const response = await this.client.post<BlogPost>(this.config.api.createPostEndpoint, {
                 title,
-                content
+                content,
+                sub_title: subtitle,
+                image,
+                tags
             });
             return response.data;
         } catch (error) {
@@ -60,14 +63,17 @@ export class ApiClient {
     /**
      * Update an existing post
      */
-    async updatePost(id: string | number, content: string, title?: string): Promise<BlogPost> {
+    async updatePost(id: string | number, content: string, title?: string, subtitle?: string, image?: string, tags?: string[]): Promise<BlogPost> {
         try {
             // Replace the {id} placeholder in the config string (e.g. "/posts/{id}")
             const url = this.config.api.updatePostEndpoint.replace('{id}', id.toString());
 
             const response = await this.client.put<BlogPost>(url, {
                 title,
-                content
+                content,
+                sub_title: subtitle,
+                image,
+                tags
             });
             return response.data;
         } catch (error) {

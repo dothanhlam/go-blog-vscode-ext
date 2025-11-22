@@ -5,6 +5,9 @@ import * as matter from 'gray-matter';
 export interface PostMetadata {
     blog_id?: string | number;
     title?: string;
+    subtitle?: string;
+    image?: string;
+    tags?: string[];
     status?: 'draft' | 'published';
     [key: string]: any; // Allow other arbitrary keys
 }

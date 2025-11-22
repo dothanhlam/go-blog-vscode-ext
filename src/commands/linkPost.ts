@@ -47,6 +47,11 @@ export async function linkPost(configManager: ConfigManager) {
         // Update metadata
         data.blog_id = selected.postId;
         data.title = selected.label;
+        // We could also populate other fields from the API response if available
+        // But for now, we'll keep existing local values or leave them undefined
+        // data.subtitle = ...
+        // data.image = ...
+        // data.tags = ...
         // Preserve other existing metadata
 
         const newContent = FrontMatterUtils.stringify(content, data);
