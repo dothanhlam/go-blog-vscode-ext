@@ -23,7 +23,7 @@ export class ApiClient {
             timeout: 5000, // Fail fast if API is down
             headers: {
                 'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${process.env.API_TOKEN}` // Future enhancement
+                ...(config.api.apiToken ? { 'Authorization': `Bearer ${config.api.apiToken}` } : {})
             }
         });
     }

@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { ConfigManager } from './configManager';
 import { syncPostOnSave } from './commands/syncPost';
 import { linkPost } from './commands/linkPost';
+import { createPost } from './commands/createPost';
 
 export async function activate(context: vscode.ExtensionContext) {
     console.log('Activating Blog Sync Extension...');
@@ -21,6 +22,10 @@ export async function activate(context: vscode.ExtensionContext) {
         linkPost(configManager);
     });
 
+    let createCommand = vscode.commands.registerCommand('blog-sync.createPost', () => {
+        createPost(configManager);
+    });
+
     // 4. Register the "On Save" Listener
     let onSaveListener = vscode.workspace.onDidSaveTextDocument((document) => {
         // We pass the document and the config to the sync logic
@@ -29,6 +34,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     // 5. Add to subscriptions so they get disposed properly
     context.subscriptions.push(linkCommand);
+    context.subscriptions.push(createCommand);
     context.subscriptions.push(onSaveListener);
 
     vscode.window.setStatusBarMessage(`Blog Extension Active: ${configManager.getConfig()?.name}`, 5000);

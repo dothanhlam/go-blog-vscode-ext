@@ -8,6 +8,7 @@ export interface BlogConfig {
         listPostsEndpoint: string;
         createPostEndpoint: string;
         updatePostEndpoint: string; // e.g., "/posts/{id}"
+        apiToken?: string; // Optional for now, but recommended
     };
     postsDirectory?: string;
 }
