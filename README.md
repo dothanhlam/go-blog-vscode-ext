@@ -52,5 +52,29 @@ This extension allows you to manage your blog posts directly from VS Code. Write
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## 💻 Development
+
+To test and modify this extension locally:
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/dothanhlam/go-blog-vscode-ext.git
+    cd go-blog-vscode-ext
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run the Extension**:
+    -   Open the project in VS Code.
+    -   Press `F5` (or go to **Run and Debug** > **Run Extension**).
+    -   A new "Extension Development Host" window will open with the extension loaded.
+
+4.  **Test**:
+    -   In the new window, open a folder containing a `blog-config.json` and some Markdown files.
+    -   Try running commands like `Blog: Link to Existing Post` or saving a file to trigger sync.
+
 ---
 *Built with ❤️ for writers who love code.*

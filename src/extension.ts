@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'
 import { ConfigManager } from './configManager';
 import { syncPostOnSave } from './commands/syncPost';
 import { linkPost } from './commands/linkPost';
@@ -16,6 +16,7 @@ export async function activate(context: vscode.ExtensionContext) {
         console.log('No blog-config.json found. Extension entering dormant state.');
         return;
     }
+    console.log('Blog Config Loaded:', configManager.getConfig());
 
     // 3. Register Commands (passing the config manager so commands know the API URL)
     let linkCommand = vscode.commands.registerCommand('blog-sync.linkPost', () => {
