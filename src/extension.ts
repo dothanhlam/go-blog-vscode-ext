@@ -37,6 +37,7 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(linkCommand);
     context.subscriptions.push(createCommand);
     context.subscriptions.push(onSaveListener);
+    context.subscriptions.push(syncAllCommand);
 
     vscode.window.setStatusBarMessage(`Blog Extension Active: ${configManager.getConfig()?.name}`, 5000);
 }

@@ -5,6 +5,7 @@ export interface BlogConfig {
     name: string;
     api: {
         baseUrl: string;
+        syncAllPostsEndpoint: string;
         listPostsEndpoint: string;
         createPostEndpoint: string;
         updatePostEndpoint: string; // e.g., "/posts/{id}"
