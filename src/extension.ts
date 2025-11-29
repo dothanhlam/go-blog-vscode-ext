@@ -3,6 +3,7 @@ import { ConfigManager } from './configManager';
 import { syncPostOnSave } from './commands/syncPost';
 import { linkPost } from './commands/linkPost';
 import { createPost } from './commands/createPost';
+import { syncAllPosts } from './commands/syncAllPosts';
 
 export async function activate(context: vscode.ExtensionContext) {
     console.log('Activating Blog Sync Extension...');
@@ -25,6 +26,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
     let createCommand = vscode.commands.registerCommand('blog-sync.createPost', () => {
         createPost(configManager);
+    });
+
+    let syncAllCommand = vscode.commands.registerCommand('blog-sync.syncAllPosts', () => {
+        syncAllPosts(configManager);
     });
 
     // 4. Register the "On Save" Listener

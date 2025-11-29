@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { ConfigManager } from "../configManager";
 
-export async function syncAllPost(configManager: ConfigManager) {
+export async function syncAllPosts(configManager: ConfigManager) {
     const config = configManager.getConfig();
     if (!config) {
         vscode.window.showErrorMessage('No config found');
